@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calculator</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #f4f4f4;
+      margin-top: 50px;
+    }
+
+    h1 {
+      color: blue;
+    }
+
+    input {
+      padding: 10px;
+      margin: 5px;
+      width: 200px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      cursor: pointer;
+      border: none;
+      background-color: blue;
+      color: white;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: darkblue;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+
+</head>
+<body>
+
+<h1>Simple Calculator</h1>
+
+<input id="num1" type="number" placeholder="Enter first number">
+<br>
+<input id="num2" type="number" placeholder="Enter second number">
+
+<br><br>
+
+<button onclick="calculate('add')">Add</button>
+<button onclick="calculate('sub')">Subtract</button>
+<button onclick="calculate('mul')">Multiply</button>
+<button onclick="calculate('div')">Divide</button>
+
+<div id="result"></div>
+
+<script>
+function calculate(operation) {
+  let a = Number(document.getElementById("num1").value);
+  let b = Number(document.getElementById("num2").value);
+  let result = "";
+
+  if (operation === "add") {
+    result = a + b;
+  } 
+  else if (operation === "sub") {
+    result = a - b;
+  } 
+  else if (operation === "mul") {
+    result = a * b;
+  } 
+  else if (operation === "div") {
+    if (b === 0) {
+      result = "Cannot divide by zero";
+    } else {
+      result = a / b;
+    }
+  }
+
+  document.getElementById("result").innerText = "Result: " + result;
+}
+</script>
+
+</body>
+</html>
